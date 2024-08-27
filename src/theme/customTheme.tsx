@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
   status: {
     white: "#ffffff",
+    purple: "#233759",
   },
   palette: {
     primary: {
@@ -15,6 +16,9 @@ export const theme = createTheme({
       fontSize: "1.25rem",
       color: "#fff",
       fontStyle: "bold",
+    },
+    h6: {
+      color: "#fff",
     },
   },
 });

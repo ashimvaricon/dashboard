@@ -18,11 +18,25 @@ import HttpsOutlinedIcon from "@mui/icons-material/HttpsOutlined";
 import React, { useState } from "react";
 import { CustomButton, CustomTextField, WhiteCheckbox } from "./loginStyled";
 import { Link as RouterLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { handleLogin } from "../../services/authServices";
+
 const Login = () => {
   const [text, setText] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setText(!text);
+  };
+
+  const handleLoginClick = async () => {
+    await handleLogin(username, password);
+    navigate("/");
   };
 
   return (
@@ -66,8 +80,10 @@ const Login = () => {
             <CustomTextField
               required
               id="outlined-required"
-              label="Email"
-              defaultValue="Hello World"
+              label="username"
+              value={username}
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
               sx={{ width: "100%", maxWidth: "400px" }}
               InputProps={{
                 startAdornment: (
@@ -82,7 +98,8 @@ const Login = () => {
               id="outlined-required"
               label="Password"
               type={text ? "text" : "password"}
-              defaultValue="Hello World"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               sx={{ width: "100%", maxWidth: "400px" }}
               InputProps={{
                 startAdornment: (
@@ -114,13 +131,14 @@ const Login = () => {
               />
             </FormGroup>
 
-            <CustomButton variant="contained">Log In</CustomButton>
+            <CustomButton variant="contained" onClick={handleLoginClick}>
+              Log In
+            </CustomButton>
             <hr
               style={{
                 color: "white",
                 margin: "15px 0",
                 width: "88%",
-
                 backgroundColor: "transparent",
               }}
             />
@@ -133,6 +151,11 @@ const Login = () => {
                 Forgot Password?
               </MuiLink>
             </Typography>
+            {error && (
+              <Typography variant="body2" color="error">
+                {error}
+              </Typography>
+            )}
           </Stack>
         </Stack>
       </Box>
