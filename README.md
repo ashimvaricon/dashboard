@@ -17,4 +17,8 @@ cd/backend
 npm run dev
 ```
 
-
+## Login Username and Password
+```
+Username: emilys
+Password: emilyspass
+```
