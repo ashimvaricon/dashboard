@@ -1,14 +1,20 @@
 ## Varicon Week 2 Tasks
 
-## How to run this project?
-
-- Execute files:
-  There is a signin page in this code to run:
-  We can execute them by using the following commands:
+## How to install this project?
 
 ```
-node totalSales.js
-node totalRevenue.js
-node highestTotalSale.js
-node salesByMonth.js
+npm i
 ```
+##How to run this Project
+#Frontend
+```
+cd/frontend
+npm run dev
+```
+#Backend
+```
+cd/backend
+npm run dev
+```
+
+
