@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { handleLogin } from "../../services/authServices";
 
-const Login = () => {
+const Login: React.FC = () => {
   const [text, setText] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
