@@ -20,5 +20,8 @@ export const theme = createTheme({
     h6: {
       color: "#fff",
     },
+    h4: {
+      color: "black",
+    },
   },
 });

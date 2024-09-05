@@ -1,13 +1,17 @@
+import React, { Suspense, lazy } from "react";
 import { ThemeProvider } from "@mui/material";
-import Login from "./pages/Signin/login";
-import { theme } from "./theme/customTheme";
 import { Route, Routes } from "react-router-dom";
-import MainLayout from "./layout/appLayout";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Products from "./pages/Products/products";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import PrivateRoute from "./components/PrivateRoute";
+import { theme } from "./theme/customTheme";
+import "react-toastify/dist/ReactToastify.css";
+
+// Lazily load the components
+const Login = lazy(() => import("./pages/signin/login"));
+const MainLayout = lazy(() => import("./layout/appLayout"));
+const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+const Products = lazy(() => import("./pages/products/products"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,11 +20,12 @@ const queryClient = new QueryClient({
     },
   },
 });
+
 const App = () => {
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<MainLayout />}>
@@ -30,10 +35,10 @@ const App = () => {
               </Route>
             </Route>
           </Routes>
-        </ThemeProvider>
-      </QueryClientProvider>
+        </Suspense>
+      </ThemeProvider>
       <ToastContainer />
-    </>
+    </QueryClientProvider>
   );
 };
 
