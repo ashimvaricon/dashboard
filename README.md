@@ -1,16 +1,29 @@
-## Varicon Week 3 Task
+## Varicon Week 3 Tasks
 
-## How to run this project?
+## How to install this project?
 
-- Execute files:
-  There is a signin page in this code to run:
-
-1st we should install the packages using
 ```
 npm i
 ```
-Then we will run it by
+
+##How to run this Project
+#Frontend
 
 ```
+cd/frontend
 npm run dev
+```
+
+#Backend
+
+```
+cd/backend
+npm run dev
+```
+
+## Login Username and Password
+
+```
+Username: emilys
+Password: emilyspass
 ```
