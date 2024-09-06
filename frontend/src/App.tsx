@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/privateRoutes/PrivateRoute";
 import { theme } from "./theme/customTheme";
 import "react-toastify/dist/ReactToastify.css";
 

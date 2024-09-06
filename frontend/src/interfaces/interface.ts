@@ -1,7 +1,6 @@
 import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import { Dispatch, FormEvent, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import {
-  FieldValues,
   UseFormRegister,
   UseFormHandleSubmit,
   FieldErrors,
@@ -74,3 +73,16 @@ export type FormFields = {
   username: string;
   password: string;
 };
+
+//Appbar Props
+export interface AppBarImplementationProps {
+  open: boolean;
+  handleDrawerOpen: () => void;
+  handleLogout: () => void;
+}
+
+export interface DrawerImplementationProps {
+  open: boolean;
+  onClick1: () => void;
+  onClick2: () => void;
+}

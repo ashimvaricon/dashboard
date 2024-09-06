@@ -52,10 +52,10 @@ export const ButtonStyled = styled(Button)({
 
 //-------------------------------------------------------------
 
-const drawerWidth = 240;
+const DRAWER_WIDTH = 240;
 
 export const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
+  width: DRAWER_WIDTH,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -88,8 +88,6 @@ export const DrawerHeader = styled("div")(({ theme }) => ({
 export const BoxContainerStyled = styled(Box)({
   display: "flex",
 });
-
-const DRAWER_WIDTH = 240;
 
 export const BoxStyled = styled(Box, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -140,8 +138,8 @@ export const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: DRAWER_WIDTH,
+    width: `calc(100% - ${DRAWER_WIDTH}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -152,7 +150,7 @@ export const AppBar = styled(MuiAppBar, {
 export const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
-  width: drawerWidth,
+  width: DRAWER_WIDTH,
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
