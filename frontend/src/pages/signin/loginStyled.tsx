@@ -139,3 +139,10 @@ export const EmailIconStyled = styled(EmailIcon)({
 export const HttpsOutlinedIconStyled = styled(HttpsOutlinedIcon)({
   color: "#98a5b9",
 });
+
+export const StyledStack = styled(Stack)({
+  alignItems: "flex-start",
+  width: "100%",
+  paddingLeft: "2rem",
+  paddingRight: "2rem",
+});

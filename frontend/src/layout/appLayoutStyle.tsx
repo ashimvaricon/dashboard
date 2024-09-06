@@ -169,3 +169,9 @@ export const Drawer = styled(MuiDrawer, {
     },
   }),
 }));
+
+export const BoxStyledNav = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  width: "100%",
+});

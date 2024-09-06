@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { handleLogin } from "../../../services/authServices";
+import { toastError, toastSuccess } from "../../../utils/Toaster";
 
 const useAuth = () => {
   const [text, setText] = useState<boolean>(false);
@@ -18,11 +19,11 @@ const useAuth = () => {
     mutationFn: (credentials: { username: string; password: string }) =>
       handleLogin(credentials.username, credentials.password),
     onSuccess: () => {
-      toast.success("Login successful!");
+      toastSuccess("Login successful!");
       navigate("/");
     },
     onError: (err: any) => {
-      toast.error("Login unsuccessful!");
+      toastError("Invalid Credentials!");
       console.error("Login failed:", err);
     },
   });

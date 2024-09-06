@@ -1,28 +1,26 @@
+// AddProductForm.tsx
 import React from "react";
 import {
   Box,
   Button,
+  IconButton,
   Stack,
   TextField,
   Typography,
-  IconButton,
 } from "@mui/material";
+import { AddProductFormProps } from "../../../interfaces/interface";
 import CloseIcon from "@mui/icons-material/Close";
-import { UpdateProductFormProps } from "../../interfaces/interface";
 
-const ProductForm: React.FC<UpdateProductFormProps> = ({
+const AddProductForm: React.FC<AddProductFormProps> = ({
   register,
   handleSubmit,
   onSubmit,
-  errors,
-  editData,
-  setEditData,
-  isUpdating,
   handleClose,
+  errors,
+  isAdding,
 }) => {
   return (
-    <Box>
-      {/* Header with Title and Close Icon */}
+    <>
       <Box
         display="flex"
         justifyContent="space-between"
@@ -30,51 +28,50 @@ const ProductForm: React.FC<UpdateProductFormProps> = ({
         mb={2}
       >
         <Typography variant="h6" color="black" component="h2">
-          Edit Product
+          Add Product
         </Typography>
         <IconButton onClick={handleClose}>
           <CloseIcon />
         </IconButton>
       </Box>
-      {/* Form */}
-      {editData && (
-        <Stack component="form" onSubmit={handleSubmit(onSubmit)} spacing={2}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={2} mt={2}>
           <TextField
-            label="Product's Name"
+            label="Product Name"
             {...register("productsName")}
-            defaultValue={editData.productsName}
+            fullWidth
             error={!!errors.productsName}
             helperText={errors.productsName?.message}
           />
           <TextField
             label="Category"
             {...register("category")}
+            fullWidth
             error={!!errors.category}
             helperText={errors.category?.message}
-            defaultValue={editData.category}
           />
           <TextField
             label="Brand"
             {...register("brand")}
+            fullWidth
             error={!!errors.brand}
             helperText={errors.brand?.message}
-            defaultValue={editData.brand}
           />
           <TextField
             label="Price"
             {...register("price")}
+            type="number"
+            fullWidth
             error={!!errors.price}
             helperText={errors.price?.message}
-            type="number"
-            defaultValue={editData.price || ""}
           />
-          <Button variant="contained" type="submit" disabled={isUpdating}>
-            {isUpdating ? "Saving..." : "Save"}
+          <Button type="submit" variant="contained" color="primary">
+            {isAdding ? "Adding" : "Add Product"}
           </Button>
         </Stack>
-      )}
-    </Box>
+      </form>
+    </>
   );
 };
 
-export default ProductForm;
+export default AddProductForm;

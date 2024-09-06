@@ -16,7 +16,7 @@ import {
 } from "../appLayoutStyle";
 import { IconButton } from "@mui/material";
 import { ChevronLeftIconStyled } from "../appLayoutStyle";
-import { drawerItems } from "../../constants/drawerItems";
+import { Drawer_Items } from "../../constants/drawerItems";
 
 interface DrawerProps {
   open: boolean;
@@ -44,7 +44,7 @@ const DrawerComponent: React.FC<DrawerProps> = ({
       </DrawerHeader>
       <DividerStyled />
       <ListStyled>
-        {drawerItems.map(({ text, path }, index) => (
+        {Drawer_Items.map(({ text, path }, index) => (
           <ListItem key={text} disablePadding sx={{ display: "block" }}>
             <ListItemButtonStyled
               onClick={() => handleDrawerItemClick(path)}

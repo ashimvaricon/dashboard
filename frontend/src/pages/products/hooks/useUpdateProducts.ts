@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { updateProduct } from "../../../services/dataFetchServices";
 import { AxiosError } from "axios";
 import { queryKeys } from "../../../keys/keys";
+import { toastSuccess } from "../../../utils/Toaster";
 
 export const useUpdateProduct = (handleClose: () => void) => {
   const queryClient = useQueryClient();
@@ -10,7 +11,7 @@ export const useUpdateProduct = (handleClose: () => void) => {
   const { mutate: update, isPending: isUpdating } = useMutation({
     mutationFn: updateProduct,
     onSuccess: () => {
-      toast.success("Successfully Updated");
+      toastSuccess("Successfully Updated");
       queryClient.invalidateQueries({
         queryKey: [queryKeys.PRODUCT_QUERY_KEY],
       });

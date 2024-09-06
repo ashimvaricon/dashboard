@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import React, { useState } from "react";
 import { addSupplier } from "../../../services/dataFetchServices";
 import { toast } from "react-toastify";
 import { useHandleModal } from "./useHandleModal";
 import { queryKeys } from "../../../keys/keys";
+import { toastError, toastSuccess } from "../../../utils/Toaster";
 export const useAddProduct = () => {
   const { open, setOpen } = useHandleModal();
 
@@ -15,14 +15,14 @@ export const useAddProduct = () => {
   const { mutate: addSupplierMutate, isPending: isAdding } = useMutation({
     mutationFn: addSupplier,
     onSuccess: () => {
-      toast.success("Product Added");
+      toastSuccess("Product Added");
       queryClient.invalidateQueries({
         queryKey: [queryKeys.PRODUCT_QUERY_KEY],
       });
       handleClose();
     },
     onError: () => {
-      toast.error("Error adding supplier:");
+      toastError("Error adding supplier:");
     },
   });
   return {

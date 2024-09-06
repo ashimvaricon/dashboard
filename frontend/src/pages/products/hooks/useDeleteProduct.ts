@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { Person } from "../../../interfaces/interface";
 import { queryKeys } from "../../../keys/keys";
+import { toastError, toastSuccess } from "../../../utils/Toaster";
 
 export const useDeleteProduct = () => {
   const queryClient = useQueryClient();
@@ -12,7 +13,7 @@ export const useDeleteProduct = () => {
   const deleteMutation = useMutation({
     mutationFn: deleteProduct,
     onSuccess: () => {
-      toast.success("Successfully Deleted");
+      toastSuccess("Successfully Deleted");
       queryClient.invalidateQueries({
         queryKey: [queryKeys.PRODUCT_QUERY_KEY],
       });
@@ -20,7 +21,7 @@ export const useDeleteProduct = () => {
     onError: (error: AxiosError<{ message: string }>) => {
       const errorMessage =
         error.response?.data?.message || "Deleting product failed";
-      toast.error(errorMessage);
+      toastError(errorMessage);
     },
   });
 

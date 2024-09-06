@@ -1,4 +1,3 @@
-import React from "react";
 import { z } from "zod";
 export const authZodSchema = () => {
   const schema = z.object({

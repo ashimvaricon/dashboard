@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
 import {
   AppBar,
+  BoxStyledNav,
   ButtonStyled,
   IconButtonStyled,
   LogoutIconStyled,
@@ -17,34 +18,36 @@ const AppBarImplementation: React.FC<AppBarImplementationProps> = ({
   handleLogout,
 }) => {
   return (
-    <div>
-      {" "}
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButtonStyled
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            open={open}
-          >
-            <MenuIcon />
-          </IconButtonStyled>
+    <AppBar position="fixed" open={open}>
+      <Toolbar>
+        <IconButtonStyled
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          open={open}
+        >
+          <MenuIcon />
+        </IconButtonStyled>
+
+        {/* Container to push Typography to the left and Button to the right */}
+        <BoxStyledNav>
           <Typography
+            component="div"
             color={theme.status.purple}
             variant="h6"
             noWrap
-            component="div"
             sx={{ flexGrow: 1 }}
           >
             Dashboard
           </Typography>
+
           <ButtonStyled onClick={handleLogout} variant="outlined">
             <LogoutIconStyled />
             Logout
           </ButtonStyled>
-        </Toolbar>
-      </AppBar>
-    </div>
+        </BoxStyledNav>
+      </Toolbar>
+    </AppBar>
   );
 };
 
