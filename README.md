@@ -1,4 +1,4 @@
-## Varicon Week 2 Tasks
+## Varicon Week 3 Tasks
 
 ## How to install this project?
 
