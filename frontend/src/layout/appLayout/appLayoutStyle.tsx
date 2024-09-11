@@ -15,11 +15,11 @@ import {
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 import MuiAppBar from "@mui/material/AppBar";
-import { AppBarProps } from "../interfaces/interface";
+import { AppBarProps } from "../../interfaces/appLayoutTypes";
 import MuiDrawer from "@mui/material/Drawer";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { MainContainerProps } from "../interfaces/interface";
+import { MainContainerProps } from "../../interfaces/appLayoutTypes";
 
 export const DashboardIconStyled = styled(DashboardIcon)(({ theme }) => ({
   color: theme.status.white,

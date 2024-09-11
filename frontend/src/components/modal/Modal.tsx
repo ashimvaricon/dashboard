@@ -1,5 +1,6 @@
-import { Box, Modal, ModalProps } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import React from "react";
+import { ModalProps } from "../../interfaces/modalInterface";
 
 const Modals: React.FC<ModalProps> = ({ open, onClose, children }) => {
   const style = {

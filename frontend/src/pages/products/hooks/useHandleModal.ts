@@ -1,6 +1,6 @@
 // useModal.ts
 import { useState } from "react";
-import { Person } from "../../../interfaces/interface";
+import { Person } from "../../../interfaces/product";
 
 export const useHandleModal = () => {
   const [open, setOpen] = useState(false);

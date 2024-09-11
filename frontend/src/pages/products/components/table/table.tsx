@@ -4,23 +4,23 @@ import {
   useMaterialReactTable,
   type MRT_ColumnDef,
 } from "material-react-table";
-import { Person } from "../../interfaces/interface";
+import { Person } from "../../../../interfaces/product";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-import { useDeleteProduct } from "./hooks/useDeleteProduct";
-import { useFetchProduct } from "./hooks/useFetchProduct";
-import { useUpdateProduct } from "./hooks/useUpdateProducts";
-import { useHandleModal } from "./hooks/useHandleModal";
-import ProductForm from "./components/EditProductTable";
-import Modals from "../../components/modal/Modal";
-import { updateZodSchema } from "../../schema/updateZodSchema";
+import { useDeleteProduct } from "../../hooks/useDeleteProduct";
+import { useFetchProduct } from "../../hooks/useFetchProduct";
+import { useUpdateProduct } from "../../hooks/useUpdateProducts";
+import { useHandleModal } from "../../hooks/useHandleModal";
+import ProductForm from "../form/EditProductTable";
+import Modals from "../../../../components/modal/Modal";
+import { productZodSchema } from "../../../../schema/productZodSchema";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-const { updateSchema } = updateZodSchema();
-type UpdateProductFormInterface = z.infer<typeof updateSchema>;
+const { productSchema } = productZodSchema();
+type UpdateProductFormInterface = z.infer<typeof productSchema>;
 
 const Table = () => {
   const { handleDelete } = useDeleteProduct();
@@ -83,7 +83,7 @@ const Table = () => {
     formState: { errors },
     reset,
   } = useForm<UpdateProductFormInterface>({
-    resolver: zodResolver(updateSchema),
+    resolver: zodResolver(productSchema),
     defaultValues: {
       productsName: editData?.productsName || "",
       category: editData?.category || "",

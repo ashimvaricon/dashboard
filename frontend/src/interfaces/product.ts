@@ -1,10 +1,10 @@
-import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import { Dispatch, SetStateAction } from "react";
 import {
-  UseFormRegister,
-  UseFormHandleSubmit,
   FieldErrors,
+  UseFormHandleSubmit,
+  UseFormRegister,
 } from "react-hook-form";
+import { Dispatch, SetStateAction } from "react";
+
 export interface Person {
   _id: string;
   sn: number;
@@ -13,15 +13,6 @@ export interface Person {
   brand: string;
   price: string;
 }
-
-export interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-export interface MainContainerProps {
-  open: boolean;
-}
-
 export interface AddProductFormInterface {
   productsName: string;
   category: string;
@@ -57,32 +48,4 @@ export interface UpdateProductFormProps {
   editData: Person | null;
   setEditData: Dispatch<SetStateAction<Person | null>>;
   isUpdating: boolean;
-}
-
-export interface MuiLinkProps {
-  component?: boolean;
-}
-
-export interface ModalProps {
-  open: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}
-
-export type FormFields = {
-  username: string;
-  password: string;
-};
-
-//Appbar Props
-export interface AppBarImplementationProps {
-  open: boolean;
-  handleDrawerOpen: () => void;
-  handleLogout: () => void;
-}
-
-export interface DrawerImplementationProps {
-  open: boolean;
-  onClick1: () => void;
-  onClick2: () => void;
 }

@@ -3,7 +3,8 @@ import {
   AUTH_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
   SERVER_BASE_URL,
-} from "../keys/keys";
+} from "../constants/keys";
+import { setItem } from "../utils/TokensManagement";
 
 export const handleLogin = async (username: string, password: string) => {
   try {
@@ -15,8 +16,8 @@ export const handleLogin = async (username: string, password: string) => {
     console.log(response);
     const { token, refreshToken } = response.data;
 
-    localStorage.setItem(AUTH_TOKEN_KEY, token);
-    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+    setItem(AUTH_TOKEN_KEY, token);
+    setItem(REFRESH_TOKEN_KEY, refreshToken);
 
     return response.data;
   } catch (error: unknown) {

@@ -13,9 +13,9 @@ import {
   ListItemTextStyled,
   DashboardIconStyled,
   ShoppingBagIconStyled,
-} from "../appLayoutStyle";
+} from "../appLayout/appLayoutStyle";
 import { IconButton } from "@mui/material";
-import { ChevronLeftIconStyled } from "../appLayoutStyle";
+import { ChevronLeftIconStyled } from "../appLayout/appLayoutStyle";
 import { Drawer_Items } from "../../constants/drawerItems";
 
 interface DrawerProps {

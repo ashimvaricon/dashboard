@@ -8,9 +8,9 @@ import {
   ButtonStyled,
   IconButtonStyled,
   LogoutIconStyled,
-} from "../appLayoutStyle";
+} from "../appLayout/appLayoutStyle";
 import { theme } from "../../theme/customTheme";
-import { AppBarImplementationProps } from "../../interfaces/interface";
+import { AppBarImplementationProps } from "../../interfaces/appLayoutTypes";
 
 const AppBarImplementation: React.FC<AppBarImplementationProps> = ({
   open,

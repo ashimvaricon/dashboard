@@ -2,6 +2,7 @@ export const AUTH_TOKEN_KEY = "authToken";
 export const REFRESH_TOKEN_KEY = "refreshToken";
 
 export const SERVER_BASE_URL = "https://dummyjson.com/auth";
+export const AXIOS_URL = "http://localhost:3000/api";
 
 export const queryKeys = {
   PRODUCT_QUERY_KEY: "product",

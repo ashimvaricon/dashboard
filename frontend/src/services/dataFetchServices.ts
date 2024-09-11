@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Person } from "../interfaces/interface";
+import { Person } from "../interfaces/product";
+import axiosInstance from "../config/axiosInstance";
 
 export const fetchProducts = async () => {
   const response = await axios.get("http://localhost:3000/api/products");
@@ -12,18 +13,13 @@ export const addSupplier = async (supplierData: {
   brand: string;
   price: string;
 }) => {
-  const response = await axios.post(
-    "http://localhost:3000/api/products",
-    supplierData
-  );
+  const response = await axiosInstance.post("/products", supplierData);
   return response.data;
 };
 
 export const deleteProduct = async (id: string) => {
   try {
-    const response = await axios.delete(
-      `http://localhost:3000/api/products/${id}`
-    );
+    const response = await axiosInstance.delete(`/products/${id}`);
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
@@ -37,8 +33,8 @@ export const deleteProduct = async (id: string) => {
 
 export const updateProduct = async (product: Person) => {
   try {
-    const response = await axios.put(
-      `http://localhost:3000/api/products/${product._id}`,
+    const response = await axiosInstance.put(
+      `/products/${product._id}`,
       product
     );
     return response.data;

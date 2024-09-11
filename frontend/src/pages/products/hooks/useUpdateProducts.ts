@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { updateProduct } from "../../../services/dataFetchServices";
 import { AxiosError } from "axios";
-import { queryKeys } from "../../../keys/keys";
+import { queryKeys } from "../../../constants/keys";
 import { toastSuccess } from "../../../utils/Toaster";
 
 export const useUpdateProduct = (handleClose: () => void) => {

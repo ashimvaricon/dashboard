@@ -3,8 +3,8 @@ import { useCallback } from "react";
 import { deleteProduct } from "../../../services/dataFetchServices";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
-import { Person } from "../../../interfaces/interface";
-import { queryKeys } from "../../../keys/keys";
+import { Person } from "../../../interfaces/product";
+import { queryKeys } from "../../../constants/keys";
 import { toastError, toastSuccess } from "../../../utils/Toaster";
 
 export const useDeleteProduct = () => {

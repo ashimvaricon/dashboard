@@ -1,8 +1,5 @@
-// useLogin.ts
-
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { handleLogin } from "../../../services/authServices";
 import { toastError, toastSuccess } from "../../../utils/Toaster";
@@ -23,7 +20,12 @@ const useAuth = () => {
       navigate("/");
     },
     onError: (err: any) => {
-      toastError("Invalid Credentials!");
+      // Ensure the error message is a string
+      const errorMessage =
+        typeof err?.response?.data?.message === "string"
+          ? err.response.data.message
+          : "Invalid Credentials!";
+      toastError(errorMessage);
       console.error("Login failed:", err);
     },
   });

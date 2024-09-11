@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addSupplier } from "../../../services/dataFetchServices";
 import { toast } from "react-toastify";
 import { useHandleModal } from "./useHandleModal";
-import { queryKeys } from "../../../keys/keys";
+import { queryKeys } from "../../../constants/keys";
 import { toastError, toastSuccess } from "../../../utils/Toaster";
 export const useAddProduct = () => {
   const { open, setOpen } = useHandleModal();

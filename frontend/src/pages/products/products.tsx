@@ -3,16 +3,16 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 import { BoxStyled } from "./productStyled";
 import { useAddProduct } from "./hooks/useAddProduct";
-import AddProductForm from "./components/AddProductForm";
+import AddProductForm from "./components/form/AddProductForm";
 import Modals from "../../components/modal/Modal";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addZodSchema } from "../../schema/addZodSchema";
-import Table from "./table";
+import { productZodSchema } from "../../schema/productZodSchema";
+import Table from "./components/table/table";
 
-const { addSchema } = addZodSchema();
-type AddProductFormInterface = z.infer<typeof addSchema>;
+const { productSchema } = productZodSchema();
+type AddProductFormInterface = z.infer<typeof productSchema>;
 
 const Products: React.FC = () => {
   const {
@@ -21,7 +21,7 @@ const Products: React.FC = () => {
     formState: { errors },
     reset,
   } = useForm<AddProductFormInterface>({
-    resolver: zodResolver(addSchema),
+    resolver: zodResolver(productSchema),
   });
 
   const onSubmit: SubmitHandler<AddProductFormInterface> = (data) => {

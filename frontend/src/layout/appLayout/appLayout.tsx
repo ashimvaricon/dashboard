@@ -1,10 +1,11 @@
 // MiniDrawer.tsx
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import AppBarImplementation from "./components/AppBar";
-import DrawerComponent from "./components/Drawer";
+import AppBarImplementation from "../components/AppBar";
+import DrawerComponent from "../components/Drawer";
 import { BoxContainerStyled, BoxStyled, DrawerHeader } from "./appLayoutStyle";
 import { Outlet, useNavigate } from "react-router-dom";
+import { removeItem } from "../../utils/TokensManagement";
 
 export default function MiniDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -24,8 +25,8 @@ export default function MiniDrawer() {
 
   // Logout Functionality
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("refreshToken");
+    removeItem("authToken");
+    removeItem("refreshToken");
 
     navigate("/login");
   };
