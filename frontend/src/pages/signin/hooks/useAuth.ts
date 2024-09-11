@@ -6,13 +6,10 @@ import { toastError, toastSuccess } from "../../../utils/Toaster";
 
 const useAuth = () => {
   const [text, setText] = useState<boolean>(false);
+  const [loginError, setLoginError] = useState<string | null>(null); // Add state for error
   const navigate = useNavigate();
 
-  const {
-    mutate: login,
-    error,
-    isPending,
-  } = useMutation({
+  const { mutate: login, isPending } = useMutation({
     mutationFn: (credentials: { username: string; password: string }) =>
       handleLogin(credentials.username, credentials.password),
     onSuccess: () => {
@@ -26,6 +23,7 @@ const useAuth = () => {
           ? err.response.data.message
           : "Invalid Credentials!";
       toastError(errorMessage);
+      setLoginError(errorMessage); // Set the error message in state
       console.error("Login failed:", err);
     },
   });
@@ -38,7 +36,7 @@ const useAuth = () => {
     text,
     handleClick,
     login,
-    error,
+    error: loginError, // Return the error from state
     isPending,
   };
 };

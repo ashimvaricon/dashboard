@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
 import AppRoutes from "./router/Routes";
 import { theme } from "./theme/customTheme";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +12,19 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <AppRoutes />
       </ThemeProvider>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </QueryClientProvider>
   );
 };
